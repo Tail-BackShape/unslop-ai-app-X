@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>釣りの相談</title>
+<style>
+  :root {
+    --ink: #1b2226;
+    --sub: #48545b;
+    --mut: #6f7b82;
+    --line: #e2e8eb;
+    --soft: #f4f7f8;
+    --accent: #1f5f7a;
+    --accent-soft: #e6f0f4;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #fff; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.8;
+    font-feature-settings: "palt" 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  .app { display: grid; grid-template-columns: 240px 1fr; min-height: 100vh; }
+  .side { border-right: 1px solid var(--line); padding: 24px 16px; background: var(--soft); }
+  .side h2 { font-size: 13px; font-weight: 600; color: var(--mut); margin: 0 0 8px; padding: 0 8px; }
+  .trip { display: flex; justify-content: space-between; padding: 8px; border-radius: 8px; font-size: 14px; color: var(--sub); }
+  .trip.on { background: #fff; color: var(--ink); font-weight: 600; box-shadow: 0 1px 4px rgba(27, 34, 38, 0.06); }
+  .trip .when { font-size: 12px; color: var(--mut); font-variant-numeric: tabular-nums; }
+  .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 1px; }
+  main { display: flex; flex-direction: column; max-width: 760px; width: 100%; margin: 0 auto; padding: 32px 40px 24px; }
+  main > h1 { font-size: 20px; font-weight: 700; margin: 0 0 24px; }
+  .log { flex: 1; display: flex; flex-direction: column; gap: 16px; }
+  .me { align-self: flex-end; max-width: 80%; background: var(--accent-soft); padding: 12px 16px; border-radius: 16px 16px 4px 16px; }
+  .status { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--mut); }
+  .status svg { width: 16px; height: 16px; flex: none; }
+  .agent h3 { font-size: 16px; font-weight: 700; margin: 0 0 8px; }
+  .agent p { margin: 0 0 12px; }
+  .agent ol { margin: 0 0 12px; padding-left: 24px; }
+  .agent table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 4px 0 12px; }
+  .agent th, .agent td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); }
+  .agent th { font-weight: 600; color: var(--sub); background: var(--soft); }
+  .agent td.num { font-variant-numeric: tabular-nums; }
+  .composer { display: flex; gap: 8px; margin-top: 24px; padding: 8px; border: 1px solid var(--line); border-radius: 12px; }
+  .composer input { flex: 1; border: 0; outline: none; font: inherit; font-size: 16px; padding: 8px 12px; color: var(--ink); }
+  .composer button { border: 0; border-radius: 8px; padding: 0 20px; background: var(--accent); color: #fff; font: inherit; font-size: 15px; font-weight: 600; }
+  .composer button:hover { background: #184d63; }
+  @media (max-width: 720px) {
+    .app { grid-template-columns: 1fr; }
+    .side { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <h2>釣行の予定</h2>
+    <div class="trip on"><span><span class="dot"></span>堤防のアジ</span><span class="when">土曜</span></div>
+    <div class="trip"><span>船のタチウオ</span><span class="when">11/22</span></div>
+    <div class="trip"><span>磯のメジナ</span><span class="when">12/6</span></div>
+    <div class="trip"><span>湖のワカサギ</span><span class="when">1/10</span></div>
+  </aside>
+
+  <main>
+    <h1>堤防のアジ釣りの相談</h1>
+
+    <div class="log">
+      <div class="me">土曜の朝、堤防でサビキ釣りをします。何時ごろに着けばいいですか？</div>
+
+      <div class="status">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#1f5f7a" stroke-width="1.6"><path d="M3.5 8.5l3 3 6-7"/></svg>
+        土曜の潮汐と日の出の時刻を調べました
+      </div>
+      <div class="status">
+        <svg viewBox="0 0 16 16" fill="none" stroke="#1f5f7a" stroke-width="1.6"><path d="M3.5 8.5l3 3 6-7"/></svg>
+        前回の釣行の記録を読みました
+      </div>
+
+      <div class="agent">
+        <h3>日の出の30分前に着くのがおすすめです</h3>
+        <p>土曜は中潮で、日の出のあとに上げ潮が続きます。アジは朝まずめと潮が動く時間に寄りやすく、前回も釣れたのは6時台でした。</p>
+        <ol>
+          <li>5時40分ごろに着き、暗いうちに仕掛けを組んでおく</li>
+          <li>コマセは少しずつまき、群れを足元に留める</li>
+          <li>満潮を過ぎて食いが落ちたら、潮が当たる側へ移る</li>
+        </ol>
+        <table>
+          <thead><tr><th>時刻</th><th>潮</th><th>ねらい</th></tr></thead>
+          <tbody>
+            <tr><td class="num">6:10</td><td>日の出・上げ潮</td><td>朝まずめ。いちばん釣れやすい</td></tr>
+            <tr><td class="num">9:20</td><td>満潮</td><td>潮が止まり、食いが落ちやすい</td></tr>
+            <tr><td class="num">11:00</td><td>下げ始め</td><td>潮が動き出したら、もう一度</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <form class="composer" onsubmit="return false">
+      <input placeholder="質問を入力" aria-label="質問">
+      <button>送信</button>
+    </form>
+  </main>
+</div>
+</body>
+</html>

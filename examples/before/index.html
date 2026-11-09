@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TsuriMind AI</title>
+<!-- わざと崩した版。tools/check-ui.mjs が反応することを確かめるための検体 -->
+<style>
+  body { margin: 0; font-family: sans-serif; background: #0f0b1e; color: #e9e4ff; }
+  .hero { padding: 40px 30px; background: linear-gradient(135deg, #7c3aed, #db2777); }
+  .logo { font-size: 28px; font-weight: 900; background: linear-gradient(90deg, #a78bfa, #f472b6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero h1 { font-size: 34px; font-weight: 900; margin: 13px 0 7px; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 999px; background: #a855f7; box-shadow: 0 0 18px rgba(168, 85, 247, 0.7); font-size: 11px; }
+  .label { text-transform: uppercase; letter-spacing: 0.2em; font-size: 11px; color: #c4b5fd; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 22px 30px; }
+  .stat { background: #1c1533; border-radius: 999px; padding: 18px 22px; border-left: 4px solid #a855f7; transition: all 0.3s; }
+  .stat:hover { transform: scale(1.05); }
+  .stat .num { font-size: 26px; font-weight: 800; }
+  .stat .note { font-size: 10px; color: #8b7fb8; }
+  .pulse { animation: pulse 1.5s infinite; }
+  @keyframes pulse { 50% { opacity: 0.4; } }
+  .chat { margin: 0 30px; padding: 26px; background: #1c1533; border-radius: 24px; border-top: 3px solid #f472b6; }
+  .empty { color: #8b7fb8; font-style: italic; }
+  .composer { display: flex; gap: 10px; margin: 18px 30px 40px; }
+  .composer input { flex: 1; font-size: 14px; padding: 14px 18px; border-radius: 999px; border: 1px solid #7c3aed; background: #120d24; color: #fff; }
+  .composer button { border-radius: 999px; padding: 0 26px; background: linear-gradient(90deg, #7c3aed, #ec4899); color: #fff; border: 0; font-weight: 800; }
+  kbd { font-size: 11px; padding: 1px 6px; border: 1px solid #6d5bd0; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">✨ TsuriMind AI</div>
+    <h1>ようこそ！ 🎣 あなたの釣りを、AIで次世代の釣果へ！</h1>
+    <span class="badge">NEW ✨ 爆速の釣果予測エンジン</span>
+    <span class="badge">PRO 🚀</span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Trips</div><div class="num">🎣 12</div><div class="note">先月から +2!! 🔥</div></div>
+    <div class="stat"><div class="label">Catch</div><div class="num">🐟 48</div><div class="note">今シーズンの釣果 ⚠️</div></div>
+    <div class="stat"><div class="label">Tide</div><div class="num">🌊 92%</div><div class="note">シームレスに潮を解析中</div></div>
+    <div class="stat"><div class="label">AI Status</div><div class="num pulse">🟢 Online</div><div class="note">応答 0.8秒・接続中</div></div>
+  </div>
+
+  <div class="chat">
+    <div class="label">Conversation</div>
+    <p class="empty">ここに AI の回答が表示されます… 何でも聞いてください！ 🤖</p>
+  </div>
+
+  <div class="composer">
+    <input placeholder="釣りについて何でも聞いてください... ✨">
+    <button>送信する 🚀</button>
+  </div>
+  <p style="margin: 0 30px; font-size: 11px; color: #8b7fb8;"><kbd>Enter</kbd> で送信　<kbd>Esc</kbd> でクリア</p>
+</body>
+</html>
