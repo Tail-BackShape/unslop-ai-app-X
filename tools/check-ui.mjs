@@ -4,7 +4,7 @@
 // 行に check-ui-ignore と書くと、その行は対象外になる。指摘が0件なら終了コード0、1件以上なら1。
 
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, extname, relative } from 'node:path';
+import { join, extname, relative, sep } from 'node:path';
 
 const EXTS = new Set(['.html', '.htm', '.css', '.scss', '.jsx', '.tsx', '.js', '.ts', '.vue', '.svelte', '.astro']);
 const SKIP_DIRS = new Set(['node_modules', 'dist', 'build', '.git', '.next', 'out', 'coverage', 'cdk.out']);
@@ -173,13 +173,13 @@ for (const a of args) walk(a, files);
 let count = 0;
 for (const file of files) {
   const isCss = ['.css', '.scss'].includes(extname(file).toLowerCase());
-  const lines = readFileSync(file, 'utf8').split('\n');
+  const lines = readFileSync(file, 'utf8').split(/\r\n|\n|\r/);
   lines.forEach((line, i) => {
     if (line.includes('check-ui-ignore') || line.length > 1000) return;
     for (const rule of RULES) {
       if (rule.test(line, { isCss })) {
         count++;
-        console.log(`${relative(process.cwd(), file)}:${i + 1}  [${rule.id}] ${rule.msg}`);
+        console.log(`${relative(process.cwd(), file).split(sep).join('/')}:${i + 1}  [${rule.id}] ${rule.msg}`);
       }
     }
   });
